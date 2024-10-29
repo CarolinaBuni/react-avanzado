@@ -1,0 +1,11 @@
+.mapboxgl-ctrl-bottom-left {
+     display: none;
+}
+
+#root>div>div.mapboxgl-map>div.mapboxgl-control-container>div.mapboxgl-ctrl-bottom-right>div {
+     display: none;
+}
+
+.lo {
+     color: #282B33;
+}
