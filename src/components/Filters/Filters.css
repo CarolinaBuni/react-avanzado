@@ -1,0 +1,70 @@
+.filters-container {
+     position: absolute;
+     top: 20px;
+     left: 20px;
+     z-index: 999;
+     display: grid;
+     grid-template-columns: 200px 200px;
+     gap: 10px;
+     align-items: center;
+     justify-items: stretch;
+     background-color: #282B33;
+     box-shadow: 0px 6px 4px 0px rgba(0, 0, 0, 0.25);
+     padding: 20px;
+     border-radius: 10px;
+     /* grid-template-rows: 50px 50px 50px; */
+}
+
+.filters-container input,
+select,
+button {
+     padding: 10px 20px;
+}
+
+.filters-container button {
+     color: #ff4886;
+}
+
+.select-filter {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.select-filter select option {
+     background-color: #282B33;
+}
+
+.filters-container>input,
+select,
+.search {
+     /* border: 2px solid violet; */
+     background-color: transparent;
+     color: white;
+     border: none;
+     box-shadow: 0px 6px 4px 0px rgba(0, 0, 0, 0.25);
+     cursor: pointer;
+}
+
+.filters-container>input:first-child::placeholder {
+     color: white;
+     padding: 10px 20px;
+     color: #ff4886;
+}
+
+.filters-container>input:nth-child(2) {
+     color: #ff4886;
+}
+
+label {
+     color: #ff4886;
+}
+
+@media screen and (max-width: 477px) {
+     .filters-container {
+          display: block;
+          
+     }
+}
+
+/* 477px */

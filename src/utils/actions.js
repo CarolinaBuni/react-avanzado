@@ -12,6 +12,8 @@ export const toggleFavoritesVisibility = ( dispatch ) => {
      dispatch( { type: "TOGGLE_FAVORITES_VISIBILITY" } );
 };
 
-export const setFavorites = ( dispatch, favorites ) => {
-     dispatch( { type: "SET_FAVORITES", payload: Array.isArray(favorites) ? favorites : [favorites] } );
-};
+export const setFavorites = (dispatch, favorites) => {
+     console.log("Llamando a setFavorites con:", favorites);
+     dispatch({ type: "SET_FAVORITES", payload: Array.isArray(favorites) ? favorites : [favorites] });
+   };
+ 

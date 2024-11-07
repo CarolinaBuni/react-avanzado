@@ -4,36 +4,36 @@ import mapboxgl from 'mapbox-gl';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2Fyb3VzaW5oYSIsImEiOiJjbTIxbTh2cWgwcmNrMm9xdDIzbnVvem05In0.pO_vgJgRtaADjpSLFcLTuw';
 
-const MapContainer = ( { onMapLoad, locations, showMarkers } ) => {
-  const mapContainer = useRef( null );
-  const [ map, setMap ] = useState( null );
+const MapContainer = ({ onMapLoad, locations, showMarkers }) => {
+  const mapContainer = useRef(null);
+  const [map, setMap] = useState(null);
 
-  useEffect( () => {
-    if ( !map ) {
-      const mapInstance = new mapboxgl.Map( {
+  useEffect(() => {
+    if (!map) {
+      const mapInstance = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/carousinha/cm21os4cq005r01qvaj3b04sw',
-        center: [ 0, 0 ],  // Establece el centro inicial en la bola del mundo
-        zoom: 1.5,       // Zoom inicial para mostrar la bola del mundo
-        pitch: 0,        // Pitch inicial sin inclinación
+        center: [0, 0],
+        zoom: 1.5,
+        pitch: 0,
         bearing: 0
-      } );
+      });
 
-      mapInstance.on( 'load', () => {
+      mapInstance.on('load', () => {
         mapInstance.addControl(
-          new mapboxgl.NavigationControl( {
+          new mapboxgl.NavigationControl({
             visualizePitch: true,
-          } )
+          })
         );
 
-        onMapLoad( mapInstance ); // Notifica cuando el mapa esté cargado
-      } );
+        onMapLoad(mapInstance);
+      });
 
-      setMap( mapInstance ); // Solo se ejecuta una vez para evitar re-renderizados.
+      setMap(mapInstance);
     }
 
     return () => map && map.remove();
-  }, [ map, onMapLoad ] );
+  }, [map, onMapLoad]);
 
   useEffect(() => {
     if (showMarkers && map && locations.length > 0) {
@@ -55,10 +55,9 @@ const MapContainer = ( { onMapLoad, locations, showMarkers } ) => {
     }
   }, [showMarkers, map, locations]);
 
-  // Memorizar el contenedor del mapa para evitar re-renderizados.
-  const mapContainerStyle = useMemo( () => ( { height: '100vh', width: '100%' } ), [] );
+  const mapContainerStyle = useMemo(() => ({ height: '100vh', width: '100%' }), []);
 
-  return <div ref={ mapContainer } style={ mapContainerStyle } />;
+  return <div ref={mapContainer} style={mapContainerStyle} />;
 };
 
-export default MapContainer;
+export default React.memo(MapContainer);

@@ -1,5 +1,4 @@
 // Toolbar.jsx
-
 import { useEffect, useRef, useState } from 'react';
 import './Toolbar.css';
 
@@ -15,7 +14,7 @@ const Toolbar = ( { onToggleMarkers, onToggleFavorites, hasFavorites } ) => {
      const handleToggleMarkers = ( event ) => {
           event.stopPropagation();
           setIsMarkersActive( ( prevState ) => !prevState );
-          setIsFavoritesActive( false ); // Deactivate favorites visually
+          setIsFavoritesActive( false ); 
           onToggleMarkers();
      };
 
@@ -23,14 +22,14 @@ const Toolbar = ( { onToggleMarkers, onToggleFavorites, hasFavorites } ) => {
           event.stopPropagation();
           if ( hasFavorites ) {
                setIsFavoritesActive( ( prevState ) => !prevState );
-               setIsMarkersActive( false ); // Deactivate events visually
+               setIsMarkersActive( false ); 
                onToggleFavorites();
           }
      };
 
      useEffect( () => {
           if ( !hasFavorites ) {
-               setIsFavoritesActive( false ); // Deactivate favorites button visually
+               setIsFavoritesActive( false ); 
           }
      }, [ hasFavorites ] );
 

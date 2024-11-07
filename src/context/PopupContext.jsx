@@ -6,28 +6,28 @@ const PopupContext = createContext();
 
 // Definimos el proveedor del contexto
 export const PopupProvider = ( { children } ) => {
-     const [ popupInfo, setPopupInfo ] = useState( null );
+    const [ popupInfo, setPopupInfo ] = useState( null );
 
-     // Función para mostrar el popup con la información proporcionada
-     const togglePopup = useCallback( ( info ) => {
-          const fullInfo = {
-               ...info,
-               coordinates: info.coordinates || info?.location?.coordinates,
-          };
-          setPopupInfo( fullInfo );
-     }, [] );
+    const togglePopup = useCallback( ( info ) => {
+        setPopupInfo( ( prev ) => {
+            if ( prev && prev.id === info.id ) {
+                
+                return prev;
+            }
+            return info;  
+        } );
+    }, [] );
 
-     // Función para cerrar el popup
-     const closePopup = () => {
-          setPopupInfo( null );
-     };
 
-     return (
-          <PopupContext.Provider value={ { popupInfo, togglePopup, closePopup } }>
-               { children }
-          </PopupContext.Provider>
-     );
+    const closePopup = useCallback( () => {
+        setPopupInfo( null );
+    }, [] );
+
+    return (
+        <PopupContext.Provider value={ { popupInfo, togglePopup, closePopup } }>
+            { children }
+        </PopupContext.Provider>
+    );
 };
 
-// Hook para acceder al contexto
 export const usePopup = () => useContext( PopupContext );
