@@ -12,7 +12,7 @@ const Filters = ( { onFilterChange, genres, segments, subGenres } ) => {
      const [ subGenre, setSubGenre ] = useState( '' );
 
      const handleSearchClick = () => {
-          // Llama a la función `onFilterChange` cuando el usuario haga clic en "Buscar"
+
           onFilterChange( { name, date, genre, segment, subGenre } );
      };
 
@@ -29,7 +29,6 @@ const Filters = ( { onFilterChange, genres, segments, subGenres } ) => {
                     value={ date }
                     onChange={ ( e ) => setDate( e.target.value )}
                />
-               {/* Usa SelectFilter para género, segmento y subgénero */ }
                <SelectFilter
                     options={ genres }
                     selectedValue={ genre }

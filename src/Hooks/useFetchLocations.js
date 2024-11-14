@@ -64,7 +64,7 @@ const useFetchLocations = () => {
     const fetchLocations = async () => {
       try {
         const response = await fetch(
-          'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=ES&city=Madrid&classificationName=music&apikey=xrdE9ZHXu6uGOvHCK5lXKw3ZuCB6c1TA&size=25'
+          'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=ES&city=Madrid&classificationName=music&apikey=xrdE9ZHXu6uGOvHCK5lXKw3ZuCB6c1TA&size=15'
         );
         
         const data = await response.json();
