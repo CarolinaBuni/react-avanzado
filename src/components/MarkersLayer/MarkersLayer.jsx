@@ -78,6 +78,38 @@ import EventHandlers from './../EventHandlers/EventHandlers';
 // export default MarkersLayer;
 
 
+// const MarkersLayer = React.memo(({ map, locations, showMarkers, focusedEventId }) => {
+//     console.log("MarkersLayer component render");
+
+//     const memoizedLocations = useMemo(() => locations, [locations]);
+
+//     return (
+//         <>
+//             {memoizedLocations.map((location) => (
+//                 <React.Fragment key={location.id}>
+//                     <SquareLayer 
+//                         map={map} 
+//                         location={location}
+//                         showMarkers={showMarkers} 
+//                         focusedEventId={focusedEventId} 
+//                     />
+//                     <EventHandlers map={map} location={location} />
+//                 </React.Fragment>
+//             ))}
+//         </>
+//     );
+// });
+
+// export default MarkersLayer;
+
+//*
+
+// MarkersLayer.jsx
+
+// import React, { useMemo } from 'react';
+// import SquareLayer from '../SquareLayer/SquareLayer'; // Ruta corregida
+// import EventHandlers from './../EventHandlers/EventHandlers';
+
 const MarkersLayer = React.memo(({ map, locations, showMarkers, focusedEventId }) => {
     console.log("MarkersLayer component render");
 

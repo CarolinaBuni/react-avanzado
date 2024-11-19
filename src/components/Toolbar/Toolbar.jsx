@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './Toolbar.css';
 
-const Toolbar = ( { onToggleMarkers, onToggleFavorites, hasFavorites } ) => {
+const Toolbar = ( { onToggleMarkers, onToggleFavorites, onShowAllEvents, hasFavorites } ) => {
      const refToggle = useRef();
      const [ isMarkersActive, setIsMarkersActive ] = useState( false );
      const [ isFavoritesActive, setIsFavoritesActive ] = useState( false );
@@ -10,6 +10,8 @@ const Toolbar = ( { onToggleMarkers, onToggleFavorites, hasFavorites } ) => {
      const activeButton = () => {
           refToggle.current.classList.toggle( 'active' );
      };
+
+     
 
      const handleToggleMarkers = ( event ) => {
           event.stopPropagation();
@@ -24,6 +26,7 @@ const Toolbar = ( { onToggleMarkers, onToggleFavorites, hasFavorites } ) => {
                setIsFavoritesActive( ( prevState ) => !prevState );
                setIsMarkersActive( false ); 
                onToggleFavorites();
+               // onShowAllEvents();
           }
      };
 

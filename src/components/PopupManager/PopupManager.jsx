@@ -11,7 +11,6 @@ const PopupManager = React.memo(({ handleToggleFavorite, isEventFavorited }) => 
 
     const isFavorited = useMemo(() => popupInfo?.id ? isEventFavorited(popupInfo.id) : false, [popupInfo, isEventFavorited]);
 
-    console.log("PopupManager component render");
     if (!popupInfo) return null;
 
     return (

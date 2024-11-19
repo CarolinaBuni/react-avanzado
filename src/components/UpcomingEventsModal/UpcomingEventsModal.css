@@ -62,7 +62,7 @@
 
 .minimized-icon {
      position: fixed;
-     bottom: 20px;
+     bottom: 65px;
      right: 20px;
 
      cursor: pointer;
@@ -70,6 +70,6 @@
 
 @media screen and (max-width: 477px) {
      .minimized-icon {
-          right: 2px;
+          /* right: 2px; */
      }
 }
