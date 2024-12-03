@@ -6,10 +6,12 @@ import CustomPopup from '../../components/CustomPopup/CustomPopup';
 import { usePopup } from '../../context/PopupContext';
 
 const PopupManager = React.memo(({ handleToggleFavorite, isEventFavorited }) => {
-    console.log("PopupManager component render");
+console.log("PopupManager Render");
+
     const { popupInfo, closePopup } = usePopup();
 
     const isFavorited = useMemo(() => popupInfo?.id ? isEventFavorited(popupInfo.id) : false, [popupInfo, isEventFavorited]);
+    
 
     if (!popupInfo) return null;
 

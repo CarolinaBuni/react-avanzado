@@ -1,57 +1,4 @@
 /* CustomPopup.css */
-/* .custom-popup-container {
-     position: absolute;
-     left: 50%;
-     top: 50%;
-     transform: translate(-50%, -50%);
-     z-index: 1000;
-     width: 300px; 
-     padding: 20px;
-     background-color: #2a2b38;
-     background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg');
-     background-position: bottom center;
-     background-repeat: no-repeat;
-     background-size: cover;
-     border-radius: 6px;
-     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-     color: #c4c3ca;
-     font-family: 'Poppins', sans-serif;
- }
- 
- .popup-title {
-     font-size: 18px;
-     font-weight: 600;
-     color: #ffeba7; 
-     margin-bottom: 10px;
- }
- 
- .popup-description {
-     font-size: 14px;
-     line-height: 1.6;
-     margin-bottom: 20px;
- }
- 
- .popup-link {
-     font-size: 14px;
-     color: #ffeba7;
-     text-decoration: none;
-     transition: color 0.3s ease-in-out;
-     margin-top: 10px;
- }
- 
- .popup-link:hover {
-     color: #fff;
- }
- 
- .custom-popup-image {
-     width: 100%;
-     height: auto;
-     border-radius: 4px;
-     margin-bottom: 10px;
- }
-  */
-
-/* CustomPopup.css */
 .custom-popup-container {
      position: absolute;
      left: 50%;
@@ -70,7 +17,7 @@
                rgba(115, 74, 88, 0.1) 15%,
                #1b2028 20%,
                #1b2028 100%);
-     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+     filter: drop-shadow(2px 4px 6px black);
      border: 3px solid transparent;
      background-clip: padding-box;
 }
@@ -124,4 +71,49 @@
      left: 15px;
      cursor: pointer;
 
+}
+
+
+/* .cancelled {
+     opacity: 0.7;
+} */
+
+.cancelled-banner {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     background-color: #ff4885ee;
+     text-align: center;
+     padding: 10px;
+     /* color: rgb(15, 15, 15); */
+     font-weight: bold;
+     font-size: 1.2rem;
+     text-transform: uppercase;
+     z-index: 20;
+     animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+     from {
+          transform: translateY(-100%);
+     }
+
+     to {
+          transform: translateY(0);
+     }
+}
+
+.cancelled-text {
+     font-size: 1.5rem;
+     font-weight: bold;
+     color: #0c0c0c;
+     margin-bottom: 10px;
+     stroke: #111111;
+}
+
+.custom-popup-container.cancelled {
+     /* filter: grayscale(80%); */
+     position: relative;
+     overflow: hidden;
 }

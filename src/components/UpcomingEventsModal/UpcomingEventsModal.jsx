@@ -4,20 +4,17 @@ import React from 'react';
 
 const UpcomingEventsModal = ( { events, onClose, onMinimize, isMinimized, onToggleMarkers } ) => {
 
-
      const upcomingEvents = events.slice( 0, 5 );
+     console.log("UpcomingEventsModal Render");
+     
 
      if ( isMinimized ) {
-          // Mostrar solo el ícono si está minimizado
           return (
                <div className="minimized-icon" onClick={ onMinimize }>
                     <img className="maximize-button" src="/assets/flecha-hacia-arriba.png" alt="flecha arriba" />
                </div>
           );
      }
-     // const handleMarkers = ( event ) => {
-     //      onToggleMarkers( event.id ); // Pasa el ID del evento a `onToggleMarkers`
-     // };
 
      return (
           <div className="upcoming-events-modal">

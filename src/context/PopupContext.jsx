@@ -1,10 +1,9 @@
 // context/PopupContext.js
 import React, { createContext, useState, useCallback, useContext } from 'react';
 
-// Creamos el contexto
 const PopupContext = createContext();
 
-// Definimos el proveedor del contexto
+// Proveedor del contexto
 export const PopupProvider = ( { children } ) => {
     const [ popupInfo, setPopupInfo ] = useState( null );
 
@@ -16,8 +15,8 @@ export const PopupProvider = ( { children } ) => {
             }
             return info;  
         } );
+        
     }, [] );
-
 
     const closePopup = useCallback( () => {
         setPopupInfo( null );

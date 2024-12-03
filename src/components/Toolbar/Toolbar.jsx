@@ -7,11 +7,12 @@ const Toolbar = ( { onToggleMarkers, onToggleFavorites, onShowAllEvents, hasFavo
      const [ isMarkersActive, setIsMarkersActive ] = useState( false );
      const [ isFavoritesActive, setIsFavoritesActive ] = useState( false );
 
+     console.log("Toolbar Render");
+     
+
      const activeButton = () => {
           refToggle.current.classList.toggle( 'active' );
      };
-
-     
 
      const handleToggleMarkers = ( event ) => {
           event.stopPropagation();
@@ -26,7 +27,6 @@ const Toolbar = ( { onToggleMarkers, onToggleFavorites, onShowAllEvents, hasFavo
                setIsFavoritesActive( ( prevState ) => !prevState );
                setIsMarkersActive( false ); 
                onToggleFavorites();
-               // onShowAllEvents();
           }
      };
 

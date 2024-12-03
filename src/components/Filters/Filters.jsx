@@ -3,17 +3,27 @@ import React, { useState } from 'react';
 import './Filters.css';
 import SelectFilter from '../SelectFilter/SelectFilter';
 
-
 const Filters = ( { onFilterChange, genres, segments, subGenres } ) => {
+     console.log("Filters Render");
+     
      const [ name, setName ] = useState( '' );
      const [ date, setDate ] = useState( '' );
      const [ genre, setGenre ] = useState( '' );
      const [ segment, setSegment ] = useState( '' );
      const [ subGenre, setSubGenre ] = useState( '' );
 
-     const handleSearchClick = () => {
+     const resetFilters = () => {
+          setName( '' );
+          setDate( '' );
+          setGenre( '' );
+          setSegment( '' );
+          setSubGenre( '' );
+          
+     };
 
+     const handleSearchClick = () => {
           onFilterChange( { name, date, genre, segment, subGenre } );
+          resetFilters();
      };
 
      return (
@@ -22,15 +32,15 @@ const Filters = ( { onFilterChange, genres, segments, subGenres } ) => {
                     type="text"
                     placeholder="Buscar por nombre"
                     value={ name }
-                    onChange={ ( e ) => setName( e.target.value )}
+                    onChange={ ( e ) => setName( e.target.value ) }
                />
                <input
                     type="date"
                     value={ date }
-                    onChange={ ( e ) => setDate( e.target.value )}
+                    onChange={ ( e ) => setDate( e.target.value ) }
                />
                <SelectFilter
-                    options={ genres }
+                    options={ genres.filter( Boolean ) }
                     selectedValue={ genre }
                     onChange={ setGenre }
                     label="Género"

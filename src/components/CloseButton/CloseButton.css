@@ -8,6 +8,7 @@
      color: white;
      cursor: pointer;
      transition: color 0.3s;
+     z-index: 99999;
 }
 
 .close-button:hover {

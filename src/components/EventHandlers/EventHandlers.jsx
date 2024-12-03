@@ -4,6 +4,8 @@ import { usePopup } from '../../context/PopupContext';
 
 const EventHandlers = ({ map, location }) => {
 
+  
+
   const { togglePopup } = usePopup();
 
   useEffect(() => {
@@ -22,7 +24,8 @@ const EventHandlers = ({ map, location }) => {
         cityName: location.cityName,
         address: location.address,
         image: location.image,
-        url: location.url
+        url: location.url,
+        status: location.status,
       });
     };
 
